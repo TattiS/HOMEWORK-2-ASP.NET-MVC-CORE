@@ -113,6 +113,18 @@ namespace Task2WebApi.Services
 				return false;
 			}
 		}
+		public static bool IsTodoExist(int id)
+		{
+			var isExist = GetEntities().SelectMany(p => p.Todos).Where(i => i.Id == id);
+			if (isExist != null && isExist.Count() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 		//Tasks
 		//Query1: Получить количество комментов под постами конкретного пользователя (по айди) (список из пост-количество)
 		public static IEnumerable<Query1Result> Query1(int userId)
@@ -235,7 +247,7 @@ namespace Task2WebApi.Services
 			return user;
 		}
 
-		//Query6:Получить следующую структуру (передать Id поста в параметры)
+		//Query 6:Получить следующую структуру (передать Id поста в параметры)
 		//Пост
 		//Самый длинный коммент поста
 		//Самый залайканный коммент поста

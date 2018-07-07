@@ -1,14 +1,14 @@
-﻿@model Task2WebApi.Models.DTO.Query1DTO
+﻿@model Task2WebApi.Models.DTO.Query3DTO
 @{
     ViewData["Title"] = "GetResult";
 }
 
-<h2>Query 1</h2>
+<h2>Query 3</h2>
 <hr />
 <div class="row">
     <div class="col-md-12">
         <article>
-            <p>Получить количество комментов под постами конкретного пользователя (по айди) (список из пост-количество)</p>
+            <p>Получить список (id, name) из списка todos которые выполнены для конкретного пользователя (по айди)</p>
         </article>
     </div>
 </div>
@@ -31,25 +31,25 @@
 
     @if (Model != null)
     {
-    <div class="col-md-9">
-        <table class="table">
-            <tr>
-                <th>UserId</th>
-                <th>User Post</th>
-                <th>Number of Comments</th>
-            </tr>
-
-            @foreach (var item in Model.Result)
-            {
+        <div class="col-md-9">
+            <table class="table">
                 <tr>
-                    <td>@Model.UserId</td>
-                    <td>@item.PostItem</td>
-                    <td>@item.CommentCount</td>
+                    <th>User Id</th>
+                    <th>Todo Id</th>
+                    <th>Completed Todo</th>
                 </tr>
-            }
 
-        </table>
+                @foreach (var item in Model.Result)
+                {
+                    <tr>
+                        <td>@Model.UserId</td>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
 
-    </div>
+            </table>
+
+        </div>
     }
 </div>

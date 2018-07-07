@@ -1,0 +1,82 @@
+﻿@model Task2WebApi.Models.DTO.Query2DTO
+@{
+    ViewData["Title"] = "GetResult";
+}
+
+<h2>Query 2</h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <article>
+            <p>Получить список комментов под постами конкретного пользователя (по айди), где body коммента < 50 символов (список из комментов)</p>
+        </article>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="GetResult">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="@Model.UserId" class="control-label"></label>
+                <input asp-for="@Model.UserId" class="form-control" />
+                <span asp-validation-for="@Model.UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Get the result" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+
+    @if (Model != null && ViewBag.NotFound==null)
+    {
+        <div class="col-md-9">
+            <table class="table">
+                <tr>
+                    <th>UserId</th>
+                    <th>User Posts' Comments</th>
+                </tr>
+                @if (Model.Comments.Count() > 0)
+                {
+                    @foreach (var item in Model.Comments)
+                    {
+                        <tr>
+                            <td>@Model.UserId</td>
+                            <td>@item</td>
+                        </tr>
+                    }
+
+                }
+                else
+                {
+                    <tr>
+                        <td>@Model.UserId</td>
+                        <td>No comments</td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    }
+    @if(ViewBag.NotFound!=null && ViewBag.NotFound)
+    {
+        <div class="col-md-9">
+            <table class="table">
+                <tr>
+                    <th>UserId</th>
+                    <th>User Posts' Comments</th>
+                </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>There's no such user.</td>
+                    </tr>
+              
+            </table>
+
+        </div>
+
+    }
+</div>
+

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Task2WebApi.Models.SomeEntity>
+
+@{
+    ViewData["Title"] = "GetResult";
+}
+
+<h2>Query4</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <article>
+            <p>Получить список пользователей по алфавиту (по возрастанию) с отсортированными todo items по длине name (по убыванию)</p>
+        </article>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <form asp-action="GetResult">
+            <div class="form-group">
+                <input type="submit" value="Get the result" class="btn btn-default" />
+            </div>
+        </form>
+        
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="col-md-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Avatar)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Todos)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.Avatar)" alt="@Html.DisplayFor(modelItem => item.Avatar)" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                <ul>
+                                    @foreach (var todo in item.Todos)
+                                    {
+                                        <li>@Html.DisplayFor(modelItem => todo.Name)</li>
+                                    }
+                                </ul>
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
+</div>

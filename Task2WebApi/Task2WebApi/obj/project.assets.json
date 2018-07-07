@@ -13256,11 +13256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tanusha\\Documents\\GitHub\\Task2WebApi\\Task2WebApi\\Task2WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Tanusha\\Documents\\GitHub\\HOMEWORK-2-ASP.NET-MVC-CORE\\Task2WebApi\\Task2WebApi\\Task2WebApi.csproj",
       "projectName": "Task2WebApi",
-      "projectPath": "C:\\Users\\Tanusha\\Documents\\GitHub\\Task2WebApi\\Task2WebApi\\Task2WebApi.csproj",
+      "projectPath": "C:\\Users\\Tanusha\\Documents\\GitHub\\HOMEWORK-2-ASP.NET-MVC-CORE\\Task2WebApi\\Task2WebApi\\Task2WebApi.csproj",
       "packagesPath": "C:\\Users\\Tanusha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tanusha\\Documents\\GitHub\\Task2WebApi\\Task2WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Tanusha\\Documents\\GitHub\\HOMEWORK-2-ASP.NET-MVC-CORE\\Task2WebApi\\Task2WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

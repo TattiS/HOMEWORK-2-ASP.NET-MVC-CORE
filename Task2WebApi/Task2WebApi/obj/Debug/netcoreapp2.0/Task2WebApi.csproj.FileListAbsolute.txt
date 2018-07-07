@@ -9,3 +9,14 @@ C:\Users\Tanusha\Documents\GitHub\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.
 C:\Users\Tanusha\Documents\GitHub\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.AssemblyInfo.cs
 C:\Users\Tanusha\Documents\GitHub\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.dll
 C:\Users\Tanusha\Documents\GitHub\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.pdb
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\bin\Debug\netcoreapp2.0\Task2WebApi.deps.json
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\bin\Debug\netcoreapp2.0\Task2WebApi.runtimeconfig.json
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\bin\Debug\netcoreapp2.0\Task2WebApi.runtimeconfig.dev.json
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\bin\Debug\netcoreapp2.0\Task2WebApi.dll
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\bin\Debug\netcoreapp2.0\Task2WebApi.pdb
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.csprojAssemblyReference.cache
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.csproj.CoreCompileInputs.cache
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.AssemblyInfoInputs.cache
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.AssemblyInfo.cs
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.dll
+C:\Users\Tanusha\Documents\GitHub\HOMEWORK-2-ASP.NET-MVC-CORE\Task2WebApi\Task2WebApi\obj\Debug\netcoreapp2.0\Task2WebApi.pdb
