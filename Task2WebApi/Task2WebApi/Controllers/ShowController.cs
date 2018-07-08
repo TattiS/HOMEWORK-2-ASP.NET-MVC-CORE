@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Task2WebApi.Models;
 using Task2WebApi.Services;
 
 namespace Task2WebApi.Controllers
@@ -29,6 +30,19 @@ namespace Task2WebApi.Controllers
 			}
 		}
 
+		public IActionResult UserS(SomeEntity user)
+		{
+
+			if (QueryService.IsUserExist(user.Id))
+			{
+				return View(QueryService.GetEntities()?.FirstOrDefault(u => u.Id == user.Id));
+			}
+			else
+			{
+				ViewData["NotFound"] = "Such user wasn't found.";
+				return View();
+			}
+		}
 		public IActionResult ShowPost(int id)
 		{
 
@@ -43,6 +57,7 @@ namespace Task2WebApi.Controllers
 			}
 		}
 
+		
 		public IActionResult ShowTodo(int id)
 		{
 
