@@ -21,8 +21,7 @@
                 <input type="submit" value="Get the result" class="btn btn-default" />
             </div>
         </form>
-        
-    </div>
+   </div>
 
     @if (Model != null)
     {
@@ -80,7 +79,7 @@
                             </td>
                             <td>
                                 
-                                @Html.ActionLink("Details", "ShowUser", "Show",new { item.Id }, new {@class= "btn btn-info" })
+                                @Html.ActionLink("Details","ShowUser","Show",new { item.Id }, new {@class= "btn btn-info" })
                                 
                             </td>
                         </tr>

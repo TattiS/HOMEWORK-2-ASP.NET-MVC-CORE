@@ -10,12 +10,14 @@ namespace Task2WebApi.Controllers
 {
     public class ShowController : Controller
     {
-        public IActionResult GetAll()
+		[Route("[controller]")]
+		[Route("[controller]/[action]")]
+		public IActionResult GetAll()
         {
             return View(QueryService.GetEntitiesList());
         }
 
-		
+		[Route("[controller]/[action]/{id?}")]
 		public IActionResult ShowUser(int id)
 		{
 			
@@ -30,6 +32,7 @@ namespace Task2WebApi.Controllers
 			}
 		}
 
+		[Route("[controller]/[action]/{user?}")]
 		public IActionResult UserS(SomeEntity user)
 		{
 

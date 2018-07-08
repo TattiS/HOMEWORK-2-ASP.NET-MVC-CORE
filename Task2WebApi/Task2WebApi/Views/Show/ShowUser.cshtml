@@ -3,46 +3,126 @@
 @{
     ViewData["Title"] = "Show User";
 }
-
 <h2>User's profile</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-4"> <img src="@Html.DisplayFor(model => model.Avatar)" alt="@Html.DisplayNameFor(model => model.Avatar)" class="img img-rounded img-responsive" /></div>
+        <div class="col-8">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedAt)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">To-do list - - @Model?.Todos?.Count()</a>
+                        </h3>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="list-group">
+                            @if (Model.Todos != null && Model.Todos.Count() > 0)
+                            {
+                                @foreach (var item in Model.Todos)
+                                {
+                                   <a href="/Show/ShowTodo?id=@item.Id" target="_blank" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">@item.Name</h4>
+                                        <p class="list-group-item-text">@item.CreatedAt</p>
+                                    </a>
 
-<div>
-    <h4>User</h4>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse2">Posts - @Model?.Posts?.Count()</a>
+                        </h3>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="list-group">
+                            @if (Model.Posts != null && Model.Posts.Count() > 0)
+                            {
+                                @foreach (var item in Model.Posts)
+                                {
+                                    <a href="/Show/ShowPost?id=@item.Id" target="_blank" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">@item.Title</h4>
+                                        <p class="list-group-item-text">@item.CreatedAt</p>
+                                        <p class="list-group-item-text">Comments: @item.Comments?.Count()</p>
+                                        <p class="list-group-item-text">Likes: @item.Likes</p>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse3">Comments - @Model?.Comments?.Count()</a>
+                        </h3>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="list-group">
+                            @if (Model.Comments != null && Model.Comments.Count() > 0)
+                            {
+                                @foreach (var item in Model.Comments)
+                                {
+                                    <a href="/Show/ShowComment?id=@item.Id" target="_blank" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">Created: @item.CreatedAt</h4>
+                                        <p class="list-group-item-text">By post @item.PostId</p>
+                                        <p class="list-group-item-text">Comment: @item.Body</p>
+                                        <p class="list-group-item-text">Likes: @item.Likes</p>
+                                    </a>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Avatar)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Avatar)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-</div>
-<div>
-   
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
