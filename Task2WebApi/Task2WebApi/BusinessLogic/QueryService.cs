@@ -49,6 +49,7 @@ namespace Task2WebApi.Services
 				}
 			}
 		}
+
 		public static List<SomeEntity> GetEntitiesList()
 		{
 			using (WebClient webClient = new WebClient())
@@ -116,6 +117,18 @@ namespace Task2WebApi.Services
 		public static bool IsTodoExist(int id)
 		{
 			var isExist = GetEntities().SelectMany(p => p.Todos).Where(i => i.Id == id);
+			if (isExist != null && isExist.Count() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		public static bool IsCommentExist(int id)
+		{
+			var isExist = GetEntities().SelectMany(p => p.Comments).Where(i => i.Id == id);
 			if (isExist != null && isExist.Count() > 0)
 			{
 				return true;

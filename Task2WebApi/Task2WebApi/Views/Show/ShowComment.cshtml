@@ -1,32 +1,21 @@
-﻿@model Task2WebApi.Models.FullPost
+﻿@model Task2WebApi.Models.Comment
 
 @{
-    ViewData["Title"] = "ShowPost";
+    ViewData["Title"] = "ShowComment";
 }
 
-<h2>ShowPost</h2>
+<h2>ShowComment</h2>
 
 <div>
-    <h4>FullPost</h4>
+    <h4>Comment @Html.DisplayNameFor(model => model.Id) : @Html.DisplayFor(model => model.Id)</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
+        
         <dt>
             @Html.DisplayNameFor(model => model.CreatedAt)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Body)
@@ -39,6 +28,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostId)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Likes)

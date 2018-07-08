@@ -74,5 +74,20 @@ namespace Task2WebApi.Controllers
 				return View();
 			}
 		}
+
+		
+		public IActionResult ShowComment(int id)
+		{
+
+			if (QueryService.IsCommentExist(id))
+			{
+				return View(QueryService.GetEntities()?.SelectMany(p => p.Comments).FirstOrDefault(u => u.Id == id));
+			}
+			else
+			{
+				ViewData["NotFound"] = "Such comment wasn't found.";
+				return View();
+			}
+		}
 	}
 }
