@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Task2WebApi.Models.SomeEntity>
+
+@{
+    ViewData["Title"] = "GetResult";
+}
+
+<h2>All users</h2>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Avatar)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.MyAddress)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => item.Avatar)" alt="@Html.DisplayFor(modelItem => item.Avatar)" class="img img-rounded img-responsive" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <address>
+                            <p>Street: @Html.DisplayFor(modelItem => item.MyAddress.Street)</p>
+                            <p>City: @Html.DisplayFor(modelItem => item.MyAddress.City)</p>
+                            <p>Country: @Html.DisplayFor(modelItem => item.MyAddress.Country)</p>
+                            <p>Zip: @Html.DisplayFor(modelItem => item.MyAddress.Zip)</p>
+                        </address>
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Details", "ShowUser", "Show", new { item.Id }, new { @class = "btn btn-info" })
+                    </td>
+
+                </tr>
+                
+            
+            }
+        </tbody>
+    </table>
+</div>
+
