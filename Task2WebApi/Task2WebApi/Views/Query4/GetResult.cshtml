@@ -66,13 +66,13 @@
                                 @Html.DisplayFor(modelItem => item.Email)
                             </td>
                             <td>
-                                <ul>
+                                <ol style="list-style:none;">
                                     @foreach (var todo in item.Todos)
                                     {
-                                        <li style="color: InfoText">@Html.ActionLink($"{todo.Name}", "ShowTodo", "Show", new { todo.Id })</li>
+                                        <li>@Html.ActionLink($"- {todo.Name}", "ShowTodo", "Show", new { todo.Id }, new { @style = "text-decoration: none;" })</li>
 
                                     }
-                                </ul>
+                                </ol>
                             </td>
                             <td>
 

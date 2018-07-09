@@ -41,20 +41,65 @@
                 <thead>
                     <tr>
                         <th>@Html.DisplayNameFor(model => model.PostId)</th>
-                        <th>The most popular comment by likes</th>
-                        <th>The longest comment</th>
-                        <th>The number of comments without likes and less 80</th>
-                        
+                        <th>@Html.DisplayNameFor(model => model.Result.LikestComm)</th>
+                        <th>@Html.DisplayNameFor(model => model.Result.LongestComm)</th>
+                        <th>@Html.DisplayNameFor(model => model.Result.LowRatedCommsCount)</th>
+
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr>
-                        <td>@Html.DisplayFor(model => model.PostId)</td>
-                        <td>@Html.DisplayFor(model => model.Result.LikestComm)</td>
-                        <td>@Html.DisplayFor(model => model.Result.LongestComm)</td>
-                        <td>@Html.DisplayFor(model => model.Result.LowRatedCommsCount)</td>                        
-                    </tr>
+                        <td>@Html.ActionLink(Model.PostId.ToString(), "ShowPost", "Show", new { id = Model?.PostId }, new { @style = "text-decoration: none;" })</td>
+                        @if (Model.Result.LikestComm != null)
+                        {
+                            <td class="alert-info">
+                                <dl class="dl-horizontal">
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LikestComm.Id)</dt>
+                                    <dd>@Model.Result.LikestComm?.Id</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LikestComm.CreatedAt)</dt>
+                                    <dd>@Model.Result.LikestComm?.CreatedAt</dd>
+                                </dl>
+                                <dl>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LikestComm.Body)</dt>
+                                    <dd>@Model.Result.LikestComm?.Body</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LikestComm.Likes)</dt>
+                                    <dd>@Model.Result.LikestComm?.Likes</dd>
+                                    @Html.ActionLink("Show more", "ShowComment", "Show", new { @Model.Result.LikestComm?.Id }, new { @class = "btn btn-info btn-xs" })
+                                </dl>
+
+                            </td>
+                        }
+                        else
+                        {
+                            <td>None</td>
+                        }
+                            @if (Model.Result.LongestComm != null)
+                            {
+                                <td class="alert-info">
+                                    <dl class="dl-horizontal">
+                                        <dt>@Html.DisplayNameFor(model => model.Result.LongestComm.Id)</dt>
+                                        <dd>@Model.Result.LongestComm?.Id</dd>
+                                        <dt>@Html.DisplayNameFor(model => model.Result.LongestComm.CreatedAt)</dt>
+                                        <dd>@Model.Result.LongestComm?.CreatedAt</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>@Html.DisplayNameFor(model => model.Result.LongestComm.Body)</dt>
+                                        <dd>@Model.Result.LongestComm?.Body</dd>
+                                        <dt>@Html.DisplayNameFor(model => model.Result.LongestComm.Likes)</dt>
+                                        <dd>@Model.Result.LongestComm?.Likes</dd>
+                                        @Html.ActionLink("Show more", "ShowComment", "Show", new { @Model.Result.LongestComm.Id }, new { @class = "btn btn-info btn-xs" })
+                                    </dl>
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>None</td>
+                            }
+
+                            <td>@Html.DisplayFor(model => model.Result.LowRatedCommsCount)</td>
+                        </tr>
 
                 </tbody>
             </table>
@@ -67,9 +112,9 @@
             <table class="table">
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.PostId)</th>
-                    <th>The most popular comment by likes</th>
-                    <th>The longest comment</th>
-                    <th>The number of comments without likes and less 80</th>
+                    <th>@Html.DisplayNameFor(model => model.Result.LikestComm)</th>
+                    <th>@Html.DisplayNameFor(model => model.Result.LongestComm)</th>
+                    <th>@Html.DisplayNameFor(model => model.Result.LowRatedCommsCount)</th>
                 </tr>
 
                 <tr>

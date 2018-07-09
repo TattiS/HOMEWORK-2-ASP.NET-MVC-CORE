@@ -38,13 +38,22 @@
                     <th>Todo Id</th>
                     <th>Completed Todo</th>
                 </tr>
-
-                @foreach (var item in Model.Result)
+                @if (Model.Result != null && Model.Result.Count() > 0)
+                {
+                    @foreach (var item in Model.Result)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model.UserId }, new { @style = "text-decoration: none;" })</td>
+                            <td>@item.Id</td>
+                            <td>@Html.ActionLink(item.Name.ToString(), "ShowTodo", "Show", new { id = item.Id }, new { @style = "text-decoration: none;" })</td>
+                        </tr>
+                    }}
+                else
                 {
                     <tr>
-                        <td>@Model.UserId</td>
-                        <td>@item.Id</td>
-                        <td>@item.Name</td>
+                        <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model.UserId }, new { @style = "text-decoration: none;" })</td>
+                        <td colspan="1" class="text-center">No to-dos</td>
+                        <td></td>
                     </tr>
                 }
 

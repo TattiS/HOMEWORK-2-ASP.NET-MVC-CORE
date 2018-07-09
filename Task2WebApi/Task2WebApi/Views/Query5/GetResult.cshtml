@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <form asp-action="GetResult">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -38,7 +38,7 @@
 
     @if (Model != null && ViewBag.NotFound == null)
     {
-        <div class="col-md-9">
+        <div class="col-md-10">
             <table class="table">
                 <thead>
                     <tr>
@@ -53,12 +53,76 @@
                 <tbody>
 
                     <tr>
-                        <td>@Html.DisplayFor(model => model.UserId)</td>
-                        <td>@Html.DisplayFor(model => model.Result.LastPost)</td>
+                        <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model?.UserId }, new { @style = "text-decoration: none;" })</td>
+                        @if (Model.Result.LastPost != null)
+                        {
+                            <td class="alert-info">
+                                <dl class="dl-horizontal">
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LastPost.Id)</dt>
+                                    <dd>@Model.Result.LastPost?.Id</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LastPost.CreatedAt)</dt>
+                                    <dd>@Model.Result.LastPost?.CreatedAt</dd>
+                                </dl>
+                                <dl>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LastPost.Title)</dt>
+                                    <dd>@Model.Result.LastPost?.Title</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.LastPost.Likes)</dt>
+                                    <dd>@Model.Result.LastPost?.Likes</dd>
+                                    @Html.ActionLink("Show more", "ShowPost", "Show", new { @Model.Result.LastPost?.Id }, new { @class = "btn btn-info btn-xs" })
+                                </dl>
+                            </td>
+                        }
+                        else
+                        {
+                            <td> None</td>
+                        }
                         <td>@Html.DisplayFor(model => model.Result.LastPostCommentsCount)</td>
                         <td>@Html.DisplayFor(model => model.Result.UnCompletedTasksCount)</td>
-                        <td>@Html.DisplayFor(model => model.Result.MostPopularByComms)</td>
-                        <td>@Html.DisplayFor(model => model.Result.MostPopularByLikes)</td>
+                        @if (Model.Result.MostPopularByComms != null)
+                        {
+                            <td class="alert-info">
+                                <dl class="dl-horizontal">
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByComms.Id)</dt>
+                                    <dd>@Model.Result.MostPopularByComms?.Id</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByComms.CreatedAt)</dt>
+                                    <dd>@Model.Result.MostPopularByComms?.CreatedAt</dd>
+                                </dl>
+                                <dl>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByComms.Title)</dt>
+                                    <dd>@Model.Result.MostPopularByComms?.Title</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByComms.Likes)</dt>
+                                    <dd>@Model.Result.MostPopularByComms?.Likes</dd>
+                                    @Html.ActionLink("Show more", "ShowPost", "Show", new { @Model.Result.MostPopularByComms?.Id }, new { @class = "btn btn-info btn-xs" })
+                                </dl>
+
+                            </td>
+                        }
+                        else
+                        {
+                            <td>None</td>
+
+                        }
+                        @if (Model.Result.MostPopularByLikes != null)
+                        {
+                            <td class="alert-info">
+                                <dl class="dl-horizontal">
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByLikes.Id)</dt>
+                                    <dd>@Model.Result.MostPopularByLikes?.Id</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByLikes.CreatedAt)</dt>
+                                    <dd>@Model.Result.MostPopularByLikes?.CreatedAt</dd>
+                                </dl>
+                                <dl>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByLikes.Title)</dt>
+                                    <dd>@Model.Result.MostPopularByLikes?.Title</dd>
+                                    <dt>@Html.DisplayNameFor(model => model.Result.MostPopularByLikes.Likes)</dt>
+                                    <dd>@Model.Result.MostPopularByLikes?.Likes</dd>
+                                    @Html.ActionLink("Show more", "ShowPost", "Show", new { @Model.Result.MostPopularByLikes?.Id }, new { @class = "btn btn-info btn-xs" })
+                                </dl>
+                            </td>
+                        }
+                        else
+                        {
+                            <td> None</td>}
                     </tr>
 
                 </tbody>
@@ -80,8 +144,12 @@
                 </tr>
 
                 <tr>
-                    <td>>@Html.DisplayFor(model => model.UserId)</td>
-                    <td>There's no such user.</td>
+                    <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model.UserId }, new { @style = "text-decoration: none;" })</td>
+                    <td colspan="4">There's no such user.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
             </table>

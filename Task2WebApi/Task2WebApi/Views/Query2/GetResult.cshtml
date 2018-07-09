@@ -29,7 +29,7 @@
         </form>
     </div>
 
-    @if (Model != null && ViewBag.NotFound==null)
+    @if (Model != null && ViewBag.NotFound == null)
     {
         <div class="col-md-9">
             <table class="table">
@@ -37,12 +37,13 @@
                     <th>UserId</th>
                     <th>User Posts' Comments</th>
                 </tr>
-                @if (Model.Comments.Count() > 0)
+                @if (Model.Comments?.Count() > 0)
                 {
                     @foreach (var item in Model.Comments)
                     {
                         <tr>
-                            <td>@Model.UserId</td>
+
+                            <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model?.UserId }, new { @style = "text-decoration: none;" })</td>
                             <td>@item</td>
                         </tr>
                     }
@@ -51,7 +52,7 @@
                 else
                 {
                     <tr>
-                        <td>@Model.UserId</td>
+                        <td>@Html.ActionLink(Model.UserId.ToString(), "ShowUser", "Show", new { id = Model?.UserId }, new { @style = "text-decoration: none;" })</td>
                         <td>No comments</td>
                     </tr>
                 }
@@ -59,7 +60,7 @@
 
         </div>
     }
-    @if(ViewBag.NotFound!=null && ViewBag.NotFound)
+    @if (ViewBag.NotFound != null && ViewBag.NotFound)
     {
         <div class="col-md-9">
             <table class="table">
@@ -68,11 +69,11 @@
                     <th>User Posts' Comments</th>
                 </tr>
 
-                    <tr>
-                        <td></td>
-                        <td>There's no such user.</td>
-                    </tr>
-              
+                <tr>
+                    <td></td>
+                    <td>There's no such user.</td>
+                </tr>
+
             </table>
 
         </div>
